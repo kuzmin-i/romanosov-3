@@ -1,7 +1,12 @@
 import React, {useEffect, useState, useRef, useCallback} from 'react'
 
 
-import ReactMapGL from 'react-map-gl';
+import MapGL, { Marker, Popup } from 'react-map-gl';
+
+import MapPin from './mappin'
+import MapTooltip from './maptooltip'
+
+import CITIES from "./data.json";
 
 
 const INITIAL_VIEW_STATE = {
@@ -26,13 +31,48 @@ const MapBlock = () => {
     zoom: 5.91
   });
 
+  const [popupInfo, setPopupInfo] = useState(null)
+
+  const _renderCityMarker = (city, index) => {
+    return (
+      <Marker
+        key={`marker-${index}`}
+        longitude={city.longitude}
+        latitude={city.latitude}
+      >
+        <MapPin size={20} onClick={() => setPopupInfo(city)} />
+      </Marker>
+    );
+  };
+
+  const _renderPopup =() => {
+
+    return (
+      popupInfo && (
+        <Popup
+          tipSize={5}
+          anchor="top"
+          longitude={popupInfo.longitude}
+          latitude={popupInfo.latitude}
+          closeOnClick={false}
+          onClose={() => setPopupInfo(null)}
+        >
+          <MapTooltip info={popupInfo} />
+        </Popup>
+      )
+    );
+  }
+
   return (
     <div className="map">
-        <ReactMapGL
+        <MapGL
             {...viewport}
             mapboxApiAccessToken={ MAPBOX_TOKEN }
             onViewportChange={nextViewport => setViewport(nextViewport)}
-        />
+        >
+          {CITIES.map(_renderCityMarker)}
+          {_renderPopup()}
+        </MapGL>
         
     </div>
   );

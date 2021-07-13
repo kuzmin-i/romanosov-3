@@ -1,0 +1,67 @@
+[
+    {
+      "city": "Emission 1",
+      "population": "Natural Gas Compression: 8,175,133",
+      "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Gotham.jpg/240px-Above_Gotham.jpg",
+      "state": "Natural Gas Compression: 8,175,133",
+      "latitude": 51.955,
+      "longitude": 142.835
+    },
+    {
+      "city": "Emission 2",
+      "population": "Natural Gas Compression: 8,175,133",
+      "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/57/LA_Skyline_Mountains2.jpg/240px-LA_Skyline_Mountains2.jpg",
+      "state": "Natural Gas Compression: 8,175,133",
+      "latitude": 51.891,
+      "longitude": 142.257
+    },
+    {
+      "city": "Emission 3",
+      "population": "Natural Gas Compression: 8,175,133",
+      "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+      "state": "Natural Gas Compression: 8,175,133",
+      "latitude": 51.627,
+      "longitude": 142.490
+    },
+    {
+        "city": "Emission 4",
+        "population": "Natural Gas Compression: 8,175,133",
+        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+        "state": "Natural Gas Compression: 8,175,133",
+        "latitude": 51.345,
+        "longitude": 143.166
+    },
+    {
+        "city": "Emission 5",
+        "population": "Natural Gas Compression: 8,175,133",
+        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+        "state": "Natural Gas Compression: 8,175,133",
+        "latitude": 51.329,
+        "longitude": 142.962
+    },
+    {
+        "city": "Emission 6",
+        "population": "Natural Gas Compression: 8,175,133",
+        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+        "state": "Natural Gas Compression: 8,175,133",
+        "latitude": 50.697,
+        "longitude": 142.522
+    },
+    {
+        "city": "Emission 7",
+        "population": "Natural Gas Compression: 8,175,133",
+        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+        "state": "Natural Gas Compression: 8,175,133",
+        "latitude": 49.733,
+        "longitude": 143.253
+    },
+    {
+        "city": "Emission 8",
+        "population": "Natural Gas Compression: 8,175,133",
+        "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+        "state": "Natural Gas Compression: 8,175,133",
+        "latitude": 48.764,
+        "longitude": 142.472
+    }
+
+  ]
