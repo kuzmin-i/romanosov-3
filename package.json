@@ -1,0 +1,28 @@
+{
+  "name": "romanosov-2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@nivo/bar": "^0.72.0",
+    "@nivo/core": "^0.72.0",
+    "@nivo/line": "^0.72.0",
+    "@nivo/pie": "^0.72.0",
+    "bootstrap": "4.6.0",
+    "mapbox-gl": "^2.3.1",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "17.0.2",
+    "react-map-gl": "^6.1.16"
+  },
+  "devDependencies": {
+    "eslint": "7.30.0",
+    "eslint-config-next": "11.0.1"
+  }
+}
