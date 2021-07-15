@@ -6,11 +6,25 @@
 @import './mainlevel/sectors__mainlevel.css';
 @import './titles/sectors__titles.css';
 @import './subitem/sectors__subitem.css';
+@import './content/sectors__content.css';
 
 .sectors {
     width: 1000px;
-    min-height: 1200px !important;
     padding: 1px;
     font-size: 11px;
     line-height: 130%;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }

@@ -3,6 +3,9 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
+import PHeader from './components/PHeader'
+import DropdownRef from './components/DropdownRef'
+
 
 const ButtonTypeB = ( chapters ) => {
 
@@ -14,9 +17,17 @@ const ButtonTypeB = ( chapters ) => {
         
         return (
             items.map(key => {
-                const _name = (key.child) ? <span style={{marginLeft: '20px'}}><input type="checkbox"/>{key.name}</span> : <span><input type="checkbox"/>{key.name}</span>
-                
+                const offset = (key.child) ? 'offset' : ''
                 let _button;
+
+                const CustomItem = React.forwardRef(({children, onClick}, ref) => {
+                    return(
+                        <div ref={ref} className={"mainfilters__cbsubitem " + offset}>
+                            <input type="checkbox"/>
+                            <div className="sectors__titles">{ key.name }</div>
+                        </div>
+                    )
+                })
 
                 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => {
                     return (
@@ -47,7 +58,7 @@ const ButtonTypeB = ( chapters ) => {
                             style={{width: '100%'}}
                         >
                         <Dropdown.Toggle id="dropdown-basic" as = {CustomToggle}>
-                            { _name }
+                            { key.name }
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {
@@ -57,9 +68,9 @@ const ButtonTypeB = ( chapters ) => {
                         </Dropdown>
                 } else {
                     _button = (
-                        <Dropdown.Item onClick = { (e) => {
-                            e.preventDefault()
-                        } } href="#/action-1">{_name}</Dropdown.Item>
+                        <Dropdown.Item as={CustomItem}>
+                            {key.name}
+                        </Dropdown.Item>
                     )
                 }
 
@@ -69,13 +80,24 @@ const ButtonTypeB = ( chapters ) => {
         )
     }
 
+    const DropdownRef = React.forwardRef(({children, ...props}, ref) => {
+        let {className, ...other} = {...props}
+        return (
+            <div className="mainfilters__popover" {...other} ref={ref}>
+                {children}
+            </div>
+        )
+    })
+
+
     return (
         <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic" bsPrefix="mainfilters__input--list">
             {label}
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
+        <Dropdown.Menu as = { DropdownRef }>
+            <Dropdown.Header as={ PHeader }>Greenhouse Gases</Dropdown.Header>
             { RecursiveMenu(_chapters) }
         </Dropdown.Menu>
         </Dropdown>

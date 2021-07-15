@@ -1,8 +1,11 @@
-import ButtonTypeA from '../ButtonTypeA'
-import ButtonTypeB from '../ButtonTypeB'
-import ButtonTypeC from '../ButtonTypeC'
+import ButtonTypeA from '../buttons/ButtonTypeA'
+import ButtonTypeB from '../buttons/ButtonTypeB'
+import ButtonTypeC from '../buttons/ButtonTypeC'
 
-const FilterComponent = ({category, name, type, linkname, listname, data}) => {
+import ButtonTypeF from '../buttons/ButtonTypeF'
+import ButtonTypeG from '../buttons/ButtonTypeG'
+
+const FilterComponent = ({category, name, type, linkname, linktype, listname, data}) => {
     const _button = (<div class="mainfilters__input--list">{ listname }</div>)
 
     const dataFish = [
@@ -39,14 +42,18 @@ const FilterComponent = ({category, name, type, linkname, listname, data}) => {
             _input = <ButtonTypeC/>
         }
     } else {
-        _input = (<ButtonTypeA chapters = { _data }/>)
+        if(type == 'dropdownG') {
+            _input = (<ButtonTypeG chapters = { _data }/>)
+        } else {
+            _input = (<ButtonTypeA chapters = { _data }/>)
+        }
     }
 
     return (
         <div className={ "mainfilters__component " + category }>
             <div className="mainfilters__titleblock">
                 <div class="mainfilter__title">{ name }</div>
-                <div class="mainfilters__link">{ linkname }</div>
+                {(linktype) ? <ButtonTypeF linktype={ linktype } linkname={ linkname }/> : ""}
             </div>
         { _input }
             

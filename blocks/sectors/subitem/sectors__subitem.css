@@ -8,4 +8,15 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    color: #787878
 }
+
+.sectors__subitem.bb {
+    padding: 3px 15px 3px 15px
+}
+
+.sectors__subitem.bb.offset {
+    padding-left: 30px
+}
+
+

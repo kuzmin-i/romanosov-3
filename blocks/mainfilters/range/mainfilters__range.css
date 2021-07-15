@@ -1,0 +1,185 @@
+
+  .mainfilters__range {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 11px;
+    width: 295px
+  }
+  .mainfilters__range .current-value {
+    width: 230px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #CACACA
+  }
+  .mainfilters__range .current-value input {
+    margin: 0;
+    max-width: 110px;
+    font-size: 11px;
+    color: #787878;
+    padding: 5px;
+    padding-left: 15px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+  }
+  .mainfilters__range .values {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 230px;
+  }
+  .mainfilters__range #slider {
+    position: relative;
+    margin: 0 auto;
+    width: 240px;
+    height: 5px;
+    background: #CACACA;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 230px
+  }
+  .mainfilters__range #slider #min {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 0;
+    height: 5px;
+    border-radius: 5px;
+    background: #CACACA;
+  }
+  .mainfilters__range #slider #min:hover::before {
+    opacity: 1;
+  }
+  .mainfilters__range #slider #min:hover::after {
+    opacity: 1;
+  }
+  .mainfilters__range #slider #min::before {
+    opacity: 0;
+    content: attr(data-content);
+    display: block;
+    position: absolute;
+    top: -32px;
+    right: -21px;
+    width: 40px;
+    padding: 3px;
+    text-align: center;
+    color: white;
+    background: black;
+    border-radius: 3px;
+  }
+  .mainfilters__range #slider #min::after {
+    opacity: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -18px;
+    right: -8px;
+    border-top: 8px solid black;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
+  .mainfilters__range #slider #min #min-drag {
+    position: absolute;
+    right: -7.5px;
+    top: -5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: black;
+    transition: all 0.3s;
+  }
+  .mainfilters__range #slider #min #min-drag:hover {
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  .mainfilters__range #slider #max {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 0;
+    height: 5px;
+    border-radius: 3px;
+    background: black;
+  }
+  .mainfilters__range #slider #max:hover::before {
+    opacity: 1;
+  }
+  .mainfilters__range #slider #max:hover::after {
+    opacity: 1;
+  }
+  .mainfilters__range #slider #max::before {
+    opacity: 0;
+    content: attr(data-content);
+    display: block;
+    position: absolute;
+    top: -32px;
+    right: -21px;
+    width: 40px;
+    padding: 3px;
+    text-align: center;
+    color: white;
+    background: black;
+    border-radius: 3px;
+  }
+  .mainfilters__range #slider #max::after {
+    opacity: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -18px;
+    right: -8px;
+    border-top: 8px solid black;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
+  .mainfilters__range #slider #max #max-drag {
+    position: absolute;
+    right: -7.5px;
+    top: -5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: black;
+    transition: all 0.3s;
+  }
+  .mainfilters__range #slider #max #max-drag:hover {
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  
+  .mainfilters__range input[type=number]::-webkit-outer-spin-button,
+  .mainfilters__range input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .mainfilters__range input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  .mainfilters__range *:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #709fdc;
+  }

@@ -4,15 +4,14 @@ export const greenhouseGases = {
         { 'name': 'Carbon Dioxide (CO2)' },
         { 'name': 'Methane (CH4)' },
         { 'name': 'Nitrous Oxide (N2O)' },
-        { 'name': 'Fluorinated GHGs', 'child': [
-            { 'name': 'HFCs' },
-            { 'name': 'PFCs' },
-            { 'name': 'SF6' },
-            { 'name': 'NF3' },
-            { 'name': 'Other Fully Fluorinated GHG' },
-            { 'name': 'HFEs' },
-            { 'name': 'Very Short Lived Compounds' },
-            { 'name': 'Other' }
-        ] }
+        { 'name': 'Fluorinated GHGs' }, 
+        { 'name': 'HFCs', 'child': true },
+        { 'name': 'PFCs', 'child': true },
+        { 'name': 'SF6', 'child': true},
+        { 'name': 'NF3', 'child': true },
+        { 'name': 'Other Fully Fluorinated GHG', 'child': true },
+        { 'name': 'HFEs', 'child': true },
+        { 'name': 'Very Short Lived Compounds', 'child': true },
+        { 'name': 'Other', 'child': true }
     ]
 }

@@ -1,14 +1,16 @@
 import React, { useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
 
 import Overlay from 'react-bootstrap/Overlay'
-import Popover from 'react-bootstrap/Popover'
+
+import DoubleRangeSlider from './ButtonTypeE'
+
+import PHeader from './components/PHeader'
 
 
 const ButtonTypeC = ( chapters ) => {
 
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
 
@@ -17,6 +19,7 @@ const ButtonTypeC = ( chapters ) => {
     setTarget(event.target);
   };
 
+
   return (
     <div ref={ref}>
       <Button onClick={handleClick} bsPrefix="mainfilters__input--list">Emission range</Button>
@@ -24,18 +27,23 @@ const ButtonTypeC = ( chapters ) => {
       <Overlay
         show={show}
         target={target}
-        placement="bottom"
+        placement="bottom-start"
         container={ref.current}
         containerPadding={20}
       >
-        <Popover id="popover-contained">
-          <Popover.Title as="h3">Popover bottom</Popover.Title>
-          <Popover.Content>
-          <Form.Control type="range" />
-          </Popover.Content>
-          
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+            className="mainfilters__popover"
+            style={{
+              ...props.style,
+            }}
+          >
+            <PHeader>Facility Emissions Range (MT CO2e)</PHeader>
+            <DoubleRangeSlider/>
+          </div>
 
-        </Popover>
+        )}
       </Overlay>
     </div>
   );

@@ -12,6 +12,15 @@
 @import './screenselector/mainfilter__screenselector.css';
 @import './title/mainfilters__title.css';
 @import './titleblock/mainfilters__titleblock.css';
+@import './exp/exp-a.css';
+@import './range/mainfilters__range.css';
+@import './pheader/mainfilters__pheader.css';
+@import './popover/mainfilters__popover.css';
+
+@import './cbsubitem/mainfilters__cbsubitem.css';
+@import './dditem/mainfilters__dditem.css';
+
+@import './manicon/mainfilters__manicon.css';
 
 .mainfilters {
     display: -webkit-box;
@@ -32,6 +41,10 @@
     border: 1px solid #000;
     -o-object-fit: fill;
     object-fit: fill;
+}
+
+.mainfilters.edit {
+    margin-bottom: 0px;
 }
 
 @media screen and (max-width: 1336px) {

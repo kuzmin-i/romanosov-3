@@ -3,10 +3,13 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    height: 40px;
+    height: 30px;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-
+    width: 290px;
+    border: 1px solid #CCCCCC;
+    overflow: hidden;
+    border-radius: 3px;
 }

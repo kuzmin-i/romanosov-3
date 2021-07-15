@@ -4,8 +4,49 @@
     line-height: 100%;
     font-weight: 700;
     text-align: center;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: -3px;
+    text-decoration-skip-ink: none;
 }
 
 .maintable__name.first {
     font-size: 18px;
+    text-decoration: none;
+}
+
+.maintable__name.powerplants {
+    text-decoration-color: #FFAFA4;
+}
+
+.maintable__name.petroleum {
+    text-decoration-color: #FFE7B8;
+}
+
+.maintable__name.refineries {
+    text-decoration-color: #DBDDE8;
+}
+
+.maintable__name.chemicals {
+    text-decoration-color: #A9ECE4;
+}
+
+.maintable__name.minerals {
+    text-decoration-color: #B3D4FB;
+}
+
+.maintable__name.waste {
+    text-decoration-color: #CEEDC7;
+}
+
+.maintable__name.metals {
+    text-decoration-color: #DEDBD1;
+}
+
+.maintable__name.pulppaper {
+    text-decoration-color: #ACACBE;
+}
+
+.maintable__name.other {
+    text-decoration-color: #E7E7E7;
 }

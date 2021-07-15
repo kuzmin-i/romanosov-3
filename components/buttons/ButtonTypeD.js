@@ -4,12 +4,28 @@ import Button from 'react-bootstrap/Button'
 import Overlay from 'react-bootstrap/Overlay'
 import Popover from 'react-bootstrap/Popover'
 
-import { sectors } from '../data/mainfilters/sectors'
+import PHeader from './components/PHeader'
+
+import { sectors } from '../../data/mainfilters/sectors'
 
 
 const ButtonTypeD = ( chapters ) => {
 
-    const [show, setShow] = useState(false);
+  let _sectors = []
+
+  console.log(sectors)
+
+  /*sectors.map((_kv,i) => {
+    const _km = {'checked': true, ...kv}
+    _sectors.push(_km)
+  })
+
+  console.log(_sectors)
+  */
+
+  const [sectorsI, setSectorsI] = useState(sectors)
+
+  const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
 
@@ -54,12 +70,13 @@ const ButtonTypeD = ( chapters ) => {
     )}
   }
 
-  const sectorBlock = (name, itemType, child ) => {
+  const sectorBlock = (name, itemType, child, color ) => {
 
     const item = (v) => { 
+      const bColor = (color) ? {backgroundColor: color} : ''
 
       return (
-      <div className={ 'sectors__' + v }>
+      <div style={ bColor } className={ 'sectors__' + v }>
           <input type="checkbox"/>
           <div className="sectors__titles"> { name } </div>
       </div>
@@ -88,7 +105,7 @@ const ButtonTypeD = ( chapters ) => {
           {
             sliced.map((a) => {
               return(
-                sectorBlock(a.name, 'block', a.child)
+                sectorBlock(a.name, 'block', a.child, a.color)
               )
             }
 )
@@ -100,9 +117,9 @@ const ButtonTypeD = ( chapters ) => {
     return ( slicedColumns )
   }
 
-  const _button = React.forwardRef(({children, onClick, type}) => {
+  const _button = React.forwardRef(({children, onClick, type},ref) => {
     return (
-      <div class={"mainfilters__input--list " + type} onClick = {onClick} aria-describedby="popover-contained">{ children }</div>
+      <div ref={ref} class={"sectors__buttons " + type} onClick = {onClick} aria-describedby="popover-contained">{ children }</div>
     )
   }) 
 
@@ -113,26 +130,34 @@ const ButtonTypeD = ( chapters ) => {
       <Overlay
         show={show}
         target={target}
-        placement="bottom"
+        placement="bottom-start"
         container={ref.current}
         containerPadding={20}
       >
-        <Popover style = {{width: '1000px', maxWidth: '1000px', height: '500px'}} id="popover-contained">
-          <Popover.Title as="h3">Sectors</Popover.Title>
-          <Popover.Content>
-            <div className = 'sectors'>
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+            className="mainfilters__popover"
+            style={{
+              ...props.style,
+            }}
+          >
+            <PHeader>Sectors</PHeader>
+            <div>
+              <div className = 'sectors'>
 
-              <div className = 'sectors__columns'>
-               { scatterSectors() }
-              </div>
+                <div className = 'sectors__columns'>
+                { scatterSectors() }
+                </div>
 
-              <div className = 'sectors__top'>
-                <Button className = 'sectors__buttons mainfilters__input--list sectorselect' type="selectsector" as = { _button }>Select All</Button>
-                <Button className = 'sectors__buttons mainfilters__input--list sectorselect' type="selectsector" as = { _button }>Deselect All</Button>
+                <div className = 'sectors__top'>
+                  <Button className = 'sectors__buttons' type="selectsector" as = { _button }>Select All</Button>
+                  <Button className = 'sectors__buttons' type="selectsector" as = { _button }>Deselect All</Button>
+                </div>
               </div>
             </div>
-          </Popover.Content>
-        </Popover>
+          </div>
+            )}
       </Overlay>
     </div>
   );

@@ -1,12 +1,14 @@
 import React, {useEffect, useState, useRef, useCallback} from 'react'
 
 
-import MapGL, { Marker, Popup } from 'react-map-gl';
+import MapGL, { Marker, Popup } from 'react-map-gl'
 
 import MapPin from './mappin'
 import MapTooltip from './maptooltip'
 
-import CITIES from "./data.json";
+import CITIES from "./data.json"
+
+import MapEditPanel from './mapeditpanel'
 
 
 const INITIAL_VIEW_STATE = {
@@ -63,15 +65,72 @@ const MapBlock = () => {
     );
   }
 
+  const [EditPanel, setEditPanel] = useState(null)
+
+  const EditBlock = React.forwardRef(({children, ...props}, ref) => {
+    const {className, ...other} = {...props}
+    return (
+    <div {...other} ref={ref}>
+      {children}
+    </div>)
+  })
+
+  const _renderEditPanel = () => {
+    return (
+      EditPanel && (
+        <Popup
+          ref={EditBlock}
+          tipSize={5}
+          anchor="top"
+          longitude={EditPanel.lngLat[0]}
+          latitude={EditPanel.lngLat[1]}
+          closeOnClick={false}
+          onClose={() => setEditPanel(null)}
+        >
+          <MapEditPanel/>
+        </Popup>
+      )
+    )
+  }
+
+
+  const [sumPins, setSumPins] = useState([...CITIES])
+
+  const addNewMarker = (e) => {
+    console.log(e)
+    let newMarker = {
+      "city": "Emission 8",
+      "population": "Natural Gas Compression: 8,175,133",
+      "image": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/2008-06-10_3000x1000_chicago_skyline.jpg/240px-2008-06-10_3000x1000_chicago_skyline.jpg",
+      "state": "Natural Gas Compression: 8,175,133",
+      "latitude": e.lngLat[1],
+      "longitude": e.lngLat[0]
+    }
+
+    setEditPanel(e)
+
+    setSumPins([...sumPins, newMarker])
+    
+    
+  }
+
+
+
+  const ShowAllPins = () => {
+    return sumPins.map(_renderCityMarker)
+  }
+
   return (
     <div className="map">
         <MapGL
             {...viewport}
             mapboxApiAccessToken={ MAPBOX_TOKEN }
             onViewportChange={nextViewport => setViewport(nextViewport)}
+            onClick = { addNewMarker }
         >
-          {CITIES.map(_renderCityMarker)}
+          {ShowAllPins()}
           {_renderPopup()}
+          {_renderEditPanel()}
         </MapGL>
         
     </div>

@@ -1,0 +1,11 @@
+.mainfilters__cbsubitem {
+    display: flex;
+    padding: 4px 10px 4px 10px;
+    align-items: center;
+    color: #393939
+}
+
+.mainfilters__cbsubitem.offset {
+    padding-left: 15px;
+    color: #787878;
+}

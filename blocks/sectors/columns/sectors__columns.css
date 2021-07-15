@@ -1,7 +1,6 @@
 .sectors__columns {
     display: -ms-grid;
     display: grid;
-    margin-top: 10px;
     grid-auto-columns: 1fr;
     grid-column-gap: 1px;
     grid-row-gap: 16px;

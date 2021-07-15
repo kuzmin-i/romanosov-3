@@ -1,0 +1,11 @@
+.mainfilters__exp-a {
+    font-family: roboto;
+    font-size: 11px;
+    line-height: 100%;
+    color: black
+}
+
+.mainfilters__exp-a.offset {
+    color: #4E4E4E;
+    padding-left: 15px
+}

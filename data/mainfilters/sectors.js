@@ -5,11 +5,13 @@ export const sectors = {
 [
         {
             'name': 'Power Plants',
-            'id': 1
+            'id': 1,
+            'color': '#FFAFA4'
         },
         {
             'name': 'Petroleum and Natural Gas Systems',
             'id': 2,
+            'color': '#FFE7B8',
             'child': [
                 { 'name': 'Offshore Petroleum & Natural Gas Production', 'id': 2.01 },
                 { 'name': 'Onshore Petroleum & Natural Gas Production', 'id': 2.02 },
@@ -26,11 +28,13 @@ export const sectors = {
         },
         {
             'name': 'Refineries',
-            'id': 3
+            'id': 3,
+            'color': '#DBDDE8'
         },
         {
             'name': 'Chemicals',
             'id': 4,
+            'color': '#A9ECE4',
             'child': [
                 { 'name': 'Adipic Acid Production', 'id': 4.01 },
                 { 'name': 'Ammonia Manufacturing', 'id': 4.02 },
@@ -48,6 +52,7 @@ export const sectors = {
         {
             'name': 'Other',
             'id': 5,
+            'color': '#E7E7E7',
             'child': [
                 { 'name': 'Underground Coal Mines', 'id': 5.01 },
                 { 'name': 'Food Processing', 'id': 5.02 },
@@ -63,6 +68,7 @@ export const sectors = {
         },
         {
             'name': 'Minerals',
+            'color': '#B3D4FB',
             'id': 6,
             'child': [
                 { 'name': 'Cement Production', 'id': 6.01 },
@@ -75,6 +81,7 @@ export const sectors = {
         {
             'name': 'Waste',
             'id': 7,
+            'color': '#CEEDC7',
             'child': [
                 { 'name': 'Municipal Landfills', 'id': 7.01 },
                 { 'name': 'Industrial Landfills', 'id': 7.02 },
@@ -85,6 +92,7 @@ export const sectors = {
         {
             'name': 'Metals',
             'id': 8,
+            'color': '#DEDBD1',
             'child': [
                 { 'name': 'Aluminum Production', 'id': 8.1 },
                 { 'name': 'Ferroalloy Production', 'id': 8.2 },
@@ -98,6 +106,7 @@ export const sectors = {
         {
             'name': 'Pulp and Paper',
             'id': 9,
+            'color': '#ACACBE',
             'child': [
                 { 'name': 'Pulp and Paper Manufacturers', 'id': 9.1 },
                 { 'name': 'Other Paper Producers', 'id': 9.2 }
