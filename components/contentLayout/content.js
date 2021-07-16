@@ -29,6 +29,13 @@ const Content = (props) => {
     ]
 
     const [scrNumber, setScrNumber] = useState(0)
+
+    const _filterCase = {
+        'dataYear': 2019,
+        'facilityType': '1'
+    }
+
+    const [filtersCase, setFilterCase] = useState(null)
     
     const ScrSelection = (i, name) => {
         return (
@@ -65,16 +72,16 @@ const Content = (props) => {
                 <div className="mainfilters__left">
                     <div className="mainfilters__floor">
                         <FilterComponent category="datayear" type="dropdownA" data={ dataYear } name="Data Year" listname="2020"/>
-                        <FilterComponent category="facility" type="dropdownA" data={ facilityType } name="Facility Type" linkname="What's this?" linktype="emitters" listname="Choose Fuel Type"/>
-                        <FilterComponent category="search"  type="inputText" linkname="Search Options" listname="Find a facility or location" linktype="search"/>
+                        <FilterComponent category="facility" type="dropdownA" data={ facilityType } name="Facility Type" linkname="What's this?" triggertype="hover" linktype="emitters" listname="Choose Fuel Type"/>
+                        <FilterComponent category="search"  type="inputText" linkname="Search Options" listname="Find a facility or location" triggertype="click" linktype="search"/>
                     </div>
                     <div className="mainfilters__floor">
                         <div className="mainfilters__leftoverflow">
                         <FilterComponent category="facility" type="dropdownA" data={ states } name="Browse to a municipality" listname="Choose municipality"/>
-                        <FilterComponent category="facility" type="dropdownA" data={ emissions } name="Emissions by Fuel type" linkname="What's this?" linktype="emissions" listname="What's this?"/>
-                        <FilterComponent category="small" type="dropdownB" data={ greenhouseGases.list } name="Filter By" listname="Greenhouse Gas"/>
+                        <FilterComponent category="facility" type="dropdownA" data={ emissions } name="Emissions by Fuel type" linkname="What's this?" triggertype="hover" linktype="emissions" listname="What's this?"/>
+                        <FilterComponent category="small" type="dropdownB" data={ greenhouseGases.list } name="Greenhouse Gases" listname="Greenhouse Gas"/>
                         <FilterComponent category="small" type="dropdownC" listname="Emission Range"/>
-                        <FilterComponent category="facility" type="dropdownG" data={ filterStatus } name="Filter By Status" linkname="What's this?" linktype="facilities" listname="All Facilities"/>
+                        <FilterComponent category="facility" type="dropdownG" data={ filterStatus } name="Filter By Status" linkname="What's this?" triggertype="hover" linktype="facilities" listname="All Facilities"/>
                         </div>
                     </div>
                 </div>

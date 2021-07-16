@@ -5,7 +5,7 @@ import ButtonTypeC from '../buttons/ButtonTypeC'
 import ButtonTypeF from '../buttons/ButtonTypeF'
 import ButtonTypeG from '../buttons/ButtonTypeG'
 
-const FilterComponent = ({category, name, type, linkname, linktype, listname, data}) => {
+const FilterComponent = ({category, name, type, linkname, linktype, listname, data, triggertype}) => {
     const _button = (<div class="mainfilters__input--list">{ listname }</div>)
 
     const dataFish = [
@@ -53,7 +53,7 @@ const FilterComponent = ({category, name, type, linkname, linktype, listname, da
         <div className={ "mainfilters__component " + category }>
             <div className="mainfilters__titleblock">
                 <div class="mainfilter__title">{ name }</div>
-                {(linktype) ? <ButtonTypeF linktype={ linktype } linkname={ linkname }/> : ""}
+                {(linktype) ? <ButtonTypeF triggertype={ triggertype } linktype={ linktype } linkname={ linkname }/> : ""}
             </div>
         { _input }
             

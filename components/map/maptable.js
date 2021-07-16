@@ -1,4 +1,5 @@
 import ButtonTypeD from '../buttons/ButtonTypeD'
+import ButtonTypeF from '../buttons/ButtonTypeF'
 
 const MapTable = () => {
     const filterSectors = (<div class="mainfilters__input--list filter">Filter sectors and industries</div>)
@@ -32,7 +33,9 @@ const MapTable = () => {
                     <div className="maintable__vhr"></div>
                     <div className="maintable__total">
                         <div class="maintable__name first">Total</div>
-                        <div class="mainfilters__link">What's this?</div>
+                        <div class="mainfilters__link">
+                            
+                        <ButtonTypeF triggertype="hover" linktype="total" placement="left" linkname="What's this?"/></div>
                     </div>
                 </div>
                 

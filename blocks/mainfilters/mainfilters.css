@@ -22,6 +22,8 @@
 
 @import './manicon/mainfilters__manicon.css';
 
+@import './whatsthispop/mainfilters__whatsthispop.css';
+
 .mainfilters {
     display: -webkit-box;
     display: -webkit-flex;

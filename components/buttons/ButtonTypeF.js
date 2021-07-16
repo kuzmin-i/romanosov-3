@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
 
-import Overlay from 'react-bootstrap/Overlay'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 import { whatsthis } from '../../data/mainfilters/whatsthis'
 
 //Button 'What's this?' 
 
-const ButtonTypeF = ( {linktype, linkname} ) => {
+const ButtonTypeF = ( {linktype, linkname, triggertype, placement} ) => {
 
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
@@ -19,37 +19,48 @@ const ButtonTypeF = ( {linktype, linkname} ) => {
   };
 
 
-  const linkButton = React.forwardRef(({children, onClick}, _ref) => {
+  const linkButton = React.forwardRef(({children, ...props}, _ref) => {
+    const {className, ...otherP} = {...props}
+
     return(
-      <div ref={_ref} onClick={onClick}  onMouseEnter={onClick} class="mainfilters__link">{ children }</div>
+      <div ref={_ref} {...otherP} class="mainfilters__link">{ children }</div>
     )
   })
 
+  const TooltipContent = React.forwardRef(({children, className, ...props}, _ref) => {
+    return (
+    <div ref={_ref} {...props} className="mainfilters__popover">
+      <div className="mainfilters__whatsthispop">
+      {children}
+      </div>
+    </div>
+    )
+  })
+
+  const renderTooltip = (props) => (
+    <TooltipContent id="button-tooltip" {...props}>
+      {whatsthis[linktype]}
+    </TooltipContent>
+  );
+
   return (
-    <div ref={ref}>
-      <Button onClick={handleClick} as={ linkButton }>{linkname}</Button>
+    <div>
+      
       
 
-      <Overlay
-        show={show}
-        target={target}
-        placement="bottom-start"
-        container={ref.current}
-        containerPadding={20}
+      <OverlayTrigger
+        placement={(placement) ? placement : "right"}
+        delay={{ show: 150, hide: 300 }}
+        trigger={triggertype}
+        overlay={renderTooltip}
       >
-        {({ placement, arrowProps, show: _show, popper, ...props }) => (
-          <div
-            {...props}
-            className="mainfilters__popover"
-            style={{
-              ...props.style,
-            }}
-          >
-            { (whatsthis) ? whatsthis[linktype] : '' }
+        <div>
+        <Button as={linkButton}>{linkname}</Button>
+            
           </div>
 
-        )}
-      </Overlay>
+        
+      </OverlayTrigger>
     </div>
   );
 
@@ -58,3 +69,5 @@ const ButtonTypeF = ( {linktype, linkname} ) => {
 }
 
 export default ButtonTypeF
+
+//{ (whatsthis) ? whatsthis[linktype] : '' }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef, useCallback} from 'react'
 
 
-import MapGL, { Marker, Popup } from 'react-map-gl'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 
 import MapPin from './mappin'
 import MapTooltip from './maptooltip'
@@ -122,8 +122,10 @@ const MapBlock = () => {
 
   return (
     <div className="map">
-        <MapGL
+        <ReactMapGL
             {...viewport}
+            width="100%"
+            height="100%"
             mapboxApiAccessToken={ MAPBOX_TOKEN }
             onViewportChange={nextViewport => setViewport(nextViewport)}
             onClick = { addNewMarker }
@@ -131,7 +133,7 @@ const MapBlock = () => {
           {ShowAllPins()}
           {_renderPopup()}
           {_renderEditPanel()}
-        </MapGL>
+        </ReactMapGL>
         
     </div>
   );
