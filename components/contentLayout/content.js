@@ -19,9 +19,9 @@ import ListTable from '../listtable/listtable'
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
-const Content = (props) => {
+const Content = ({pinData}) => {
     const _screen = [
-        {'name': 'map', 'block': (<MapBlock/>)},
+        {'name': 'map', 'block': (<MapBlock pinData={ pinData }/>)},
         {'name': 'list', 'block': (<ListTable/>)},
         {'name': 'trends', 'block': (<Chart type="trends"/>)},
         {'name': 'barchart', 'block': (<Chart type="barchart"/>)},

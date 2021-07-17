@@ -6,26 +6,26 @@ const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,
 
 const pinStyle = {
   cursor: "pointer",
-  fill: "#d00",
   stroke: "none"
 };
 
+const FTDefaultData = {
+  '1a': 'a', '1b': 'b', '1c': 'b', '1d': 'c', '1e': 'c', '1f': 'd', 
+  '2a': 'e', '2b': 'e', '2c': 'e', '2d': 'e', '2e': 'e', '2f': 'e', 
+  '3a': 'f', '3b': 'f', '3c': 'f',
+  '4': 'g'
+}
+
+
 export default class MapPin extends PureComponent {
   render() {
-    const { size = 20, onClick } = this.props;
+    const { size = 20, onClick, filterStatus, facilityType } = this.props;
+    
+
+    const genId = filterStatus + FTDefaultData[facilityType] + '.svg'
 
     return (
-      <svg
-        height={size}
-        viewBox="0 0 24 24"
-        style={{
-          ...pinStyle,
-          transform: `translate(${-size / 2}px,${-size}px)`
-        }}
-        onClick={onClick}
-      >
-        <path d={ICON} />
-      </svg>
+      <img src={"/mapIcons/" + genId} style={{width: '24px', height: '25px', marginLeft: '-12px', marginTop: '-25px'}}/>
     );
   }
 }
