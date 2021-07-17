@@ -25,6 +25,15 @@
     line-height: 100%;
 }
 
+.mainfilters__clearbutton.export {
+    height: 30px;
+    min-width: 100px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left: 10px;
+    align-self: auto;
+}
+
 .mainfilters__clearbutton:focus {
     background-color: #fff;
     border-color: #80bdff;

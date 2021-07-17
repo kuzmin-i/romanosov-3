@@ -8,6 +8,7 @@ import DropdownRef from './components/DropdownRef'
 
 const ButtonTypeG= ( chapters ) => {
 
+    const propsData = chapters.propsData
     const _chapters = chapters.chapters
 
     const [label, setLabel] = useState(_chapters[0].name)
@@ -32,7 +33,13 @@ const ButtonTypeG= ( chapters ) => {
                     }
                 }
 
-                _button = (<Dropdown.Item onClick = { () => setToogle({'bc': key.name, 'fn': key.id}) } href="#/action-1" as={ DropdownItemRef }>{ ListItem({'aid': key.id, 'aname': key.name}) }</Dropdown.Item>)
+                _button = (<Dropdown.Item 
+                    onClick = { () => {
+                        setToogle({'bc': key.name, 'fn': key.id})
+                        if(propsData) {
+                            propsData.addItems(key.id)
+                        }
+                    } } href="#/action-1" as={ DropdownItemRef }>{ ListItem({'aid': key.id, 'aname': key.name}) }</Dropdown.Item>)
 
                 return _button
 

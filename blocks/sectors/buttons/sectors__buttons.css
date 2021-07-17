@@ -18,3 +18,8 @@
     text-align: center;
     margin: 0px
 }
+
+.sectors__buttons:hover {
+    background-color: #f6f6f6;
+    cursor: pointer;
+}

@@ -1,11 +1,11 @@
 export const emissions = [
-    { 'name': 'Choose Fuel Type' },
-    { 'name': 'All Fuel Combustion' },
-    { 'name': 'Coal', 'child': true },
-    { 'name': 'Natural Gas', 'child': true },
-    { 'name': 'Petroleum Products', 'child': true },
-    { 'name': 'Other', 'child': true },
-    { 'name': 'Process Emissions' },
-    { 'name': 'Use of Sorbent' },
-    { 'name': 'Use of Carbonates' }
+    { 'name': 'Choose Fuel Type', 'id': '0' },
+    { 'name': 'All Fuel Combustion', 'id': '1' },
+    { 'name': 'Coal', 'child': true, 'id': '1a' },
+    { 'name': 'Natural Gas', 'child': true, 'id': '1b' },
+    { 'name': 'Petroleum Products', 'child': true, 'id': '1c' },
+    { 'name': 'Other', 'child': true, 'id': '1d' },
+    { 'name': 'Process Emissions', 'id': '2' },
+    { 'name': 'Use of Sorbent', 'id': '3' },
+    { 'name': 'Use of Carbonates', 'id': '4' }
 ]

@@ -9,21 +9,13 @@ import PHeader from './components/PHeader'
 import { sectors } from '../../data/mainfilters/sectors'
 
 
-const ButtonTypeD = ( chapters ) => {
+const ButtonTypeD = ( {sector} ) => {
 
-  let _sectors = []
 
-  console.log(sectors)
-
-  /*sectors.map((_kv,i) => {
-    const _km = {'checked': true, ...kv}
-    _sectors.push(_km)
-  })
-
-  console.log(_sectors)
-  */
 
   const [sectorsI, setSectorsI] = useState(sectors)
+
+
 
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
@@ -41,14 +33,15 @@ const ButtonTypeD = ( chapters ) => {
     [6, 9]
   ]
 
+
   const addListItem = (child) => {
 
     const sublist = () => {
       const __sublist = child.map((a) => {
 
         const l = (
-        <div className='sectors__subitem'>
-          <input type="checkbox"/>
+        <div className='sectors__subitem' id={a.id} onClick = { () => sector.addCategoryItems( a.id, 'sub' ) }>
+          <input onChange={ () => sector.addCategoryItems( a.id, 'sub' ) } type="checkbox" checked={(sector.data[a.id] == true) ? 'checked' : false }/>
           <div className="sectors__titles"> { a.name } </div>
         </div>
         )
@@ -70,14 +63,15 @@ const ButtonTypeD = ( chapters ) => {
     )}
   }
 
-  const sectorBlock = (name, itemType, child, color ) => {
+  const sectorBlock = (name, itemType, child, color, id ) => {
 
     const item = (v) => { 
       const bColor = (color) ? {backgroundColor: color} : ''
 
+
       return (
-      <div style={ bColor } className={ 'sectors__' + v }>
-          <input type="checkbox"/>
+      <div style={ bColor } className={ 'sectors__' + v } id={ id } onClick={ () => sector.addCategoryItems( id, 'main' ) }>
+          <input type="checkbox" onChange={ () => sector.addCategoryItems( id, 'main' ) } checked={(sector.data[id] == true) ? 'checked' : false }/>
           <div className="sectors__titles"> { name } </div>
       </div>
     )
@@ -105,7 +99,7 @@ const ButtonTypeD = ( chapters ) => {
           {
             sliced.map((a) => {
               return(
-                sectorBlock(a.name, 'block', a.child, a.color)
+                sectorBlock(a.name, 'block', a.child, a.color, a.id)
               )
             }
 )
@@ -151,8 +145,8 @@ const ButtonTypeD = ( chapters ) => {
                 </div>
 
                 <div className = 'sectors__top'>
-                  <Button className = 'sectors__buttons' type="selectsector" as = { _button }>Select All</Button>
-                  <Button className = 'sectors__buttons' type="selectsector" as = { _button }>Deselect All</Button>
+                  <Button className = 'sectors__buttons' type="selectsector" as = { _button } onClick = { () => sector.selectAll() }>Select All</Button>
+                  <Button className = 'sectors__buttons' type="selectsector" as = { _button } onClick = { () => sector.clearAll() }>Deselect All</Button>
                 </div>
               </div>
             </div>

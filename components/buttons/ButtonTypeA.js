@@ -9,6 +9,7 @@ import DropdownRef from './components/DropdownRef'
 
 const ButtonTypeA = ( chapters ) => {
 
+    const propsData = chapters.propsData
     const _chapters = chapters.chapters
 
     const [label, setLabel] = useState(_chapters[0].name)
@@ -17,7 +18,7 @@ const ButtonTypeA = ( chapters ) => {
         
         return (
             items.map(key => {
-                const _name = (key.child) ? <div className="mainfilters__exp-a offset">{key.name}</div> : <b className="mainfilters__exp-a">{key.name}</b>
+                const _name = (key.child) ? <div className="mainfilters__exp-a offset">{key.name}</div> : <div className="mainfilters__exp-a">{key.name}</div>
                 
                 let _button;
 
@@ -44,7 +45,15 @@ const ButtonTypeA = ( chapters ) => {
                         </Dropdown.Menu>
                         </Dropdown>
                 } else {
-                    _button = (<Dropdown.Item onClick = { () => setLabel(key.name) } href="#/action-1" as={ DropdownItemRef }>{_name}</Dropdown.Item>)
+                    _button = (
+                            <Dropdown.Item 
+                                onClick = { () => {
+                                    setLabel(key.name)
+                                    if(propsData) {
+                                        propsData.addItems(key.id)
+                                    }
+                                } } href="#/action-1" as={ DropdownItemRef }>{_name}</Dropdown.Item>
+                        )
                 }
 
                 return _button

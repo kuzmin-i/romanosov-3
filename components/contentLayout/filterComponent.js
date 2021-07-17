@@ -5,7 +5,7 @@ import ButtonTypeC from '../buttons/ButtonTypeC'
 import ButtonTypeF from '../buttons/ButtonTypeF'
 import ButtonTypeG from '../buttons/ButtonTypeG'
 
-const FilterComponent = ({category, name, type, linkname, linktype, listname, data, triggertype}) => {
+const FilterComponent = ({category, name, type, linkname, linktype, listname, data, triggertype, propsData}) => {
     const _button = (<div class="mainfilters__input--list">{ listname }</div>)
 
     const dataFish = [
@@ -37,15 +37,15 @@ const FilterComponent = ({category, name, type, linkname, linktype, listname, da
     } 
     else if(category == 'small') {
         if(type == 'dropdownB') {
-            _input = (<ButtonTypeB chapters = { _data }/>)
+            _input = (<ButtonTypeB propsData = { propsData } chapters = { _data }/>)
         } else {
             _input = <ButtonTypeC/>
         }
     } else {
         if(type == 'dropdownG') {
-            _input = (<ButtonTypeG chapters = { _data }/>)
+            _input = (<ButtonTypeG propsData = { (propsData) ? propsData : false } chapters = { _data }/>)
         } else {
-            _input = (<ButtonTypeA chapters = { _data }/>)
+            _input = (<ButtonTypeA propsData = { (propsData) ? propsData : false } chapters = { _data }/>)
         }
     }
 

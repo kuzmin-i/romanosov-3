@@ -1,7 +1,7 @@
 import ButtonTypeD from '../buttons/ButtonTypeD'
 import ButtonTypeF from '../buttons/ButtonTypeF'
 
-const MapTable = () => {
+const MapTable = ({sector}) => {
     const filterSectors = (<div class="mainfilters__input--list filter">Filter sectors and industries</div>)
     const _filterSectors = ButtonTypeD
 
@@ -11,7 +11,7 @@ const MapTable = () => {
 
                 <div className="maintable__firstcol">
                     <div className="maintable__name first">Sector</div>
-                    <ButtonTypeD class="mainfilters__input--list filter"/>
+                    <ButtonTypeD class="mainfilters__input--list filter" sector={sector}/>
                     <div class="maintable__vhr"/>
                 </div>
 

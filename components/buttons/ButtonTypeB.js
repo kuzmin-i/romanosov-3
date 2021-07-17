@@ -10,6 +10,7 @@ import DropdownRef from './components/DropdownRef'
 const ButtonTypeB = ( chapters ) => {
 
     const _chapters = chapters.chapters
+    const propsData = chapters.propsData
 
     const [label, setLabel] = useState(_chapters[0].name)
 
@@ -21,9 +22,11 @@ const ButtonTypeB = ( chapters ) => {
                 let _button;
 
                 const CustomItem = React.forwardRef(({children, onClick}, ref) => {
+                    const SubOrMain = (key.child) ? 'sub' : 'main'
+
                     return(
                         <div ref={ref} className={"mainfilters__cbsubitem " + offset}>
-                            <input type="checkbox"/>
+                            <input type="checkbox" onChange = {() => propsData.addGhGasesItems(key.id, SubOrMain)} checked={(propsData.data[key.id] == true) ? 'checked' : false} />
                             <div className="sectors__titles">{ key.name }</div>
                         </div>
                     )
@@ -41,7 +44,7 @@ const ButtonTypeB = ( chapters ) => {
                         onClick(e);
                       }}
                     >
-                      {children}
+                      Greenhouse Gases
                     </a>
                   )
                     });
@@ -58,7 +61,7 @@ const ButtonTypeB = ( chapters ) => {
                             style={{width: '100%'}}
                         >
                         <Dropdown.Toggle id="dropdown-basic" as = {CustomToggle}>
-                            { key.name }
+                            Greenhouse Gases
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {
@@ -80,10 +83,10 @@ const ButtonTypeB = ( chapters ) => {
         )
     }
 
-    const DropdownRef = React.forwardRef(({children, ...props}, ref) => {
+    const DropdownRef = React.forwardRef(({children, ...props}, __ref) => {
         let {className, ...other} = {...props}
         return (
-            <div className="mainfilters__popover" {...other} ref={ref}>
+            <div className={"mainfilters__popover b" } {...other} ref={__ref}>
                 {children}
             </div>
         )
@@ -93,10 +96,10 @@ const ButtonTypeB = ( chapters ) => {
     return (
         <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic" bsPrefix="mainfilters__input--list">
-            {label}
+            Greenhouse Gases
         </Dropdown.Toggle>
 
-        <Dropdown.Menu as = { DropdownRef }>
+        <Dropdown.Menu>
             <Dropdown.Header as={ PHeader }>Greenhouse Gases</Dropdown.Header>
             { RecursiveMenu(_chapters) }
         </Dropdown.Menu>

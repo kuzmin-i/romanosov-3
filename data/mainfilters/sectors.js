@@ -5,111 +5,111 @@ export const sectors = {
 [
         {
             'name': 'Power Plants',
-            'id': 1,
+            'id': '1',
             'color': '#FFAFA4'
         },
         {
             'name': 'Petroleum and Natural Gas Systems',
-            'id': 2,
+            'id': '2',
             'color': '#FFE7B8',
             'child': [
-                { 'name': 'Offshore Petroleum & Natural Gas Production', 'id': 2.01 },
-                { 'name': 'Onshore Petroleum & Natural Gas Production', 'id': 2.02 },
-                { 'name': 'Onshore Petroleum & Natural Gas Gathering & Boosting', 'id': 2.03 },
-                { 'name': 'Natural Gas Processing', 'id': 2.04 },
-                { 'name': 'Natural Gas Transmission/Compression', 'id': 2.05 },
-                { 'name': 'Onshore Natural Gas Transmission Pipelines', 'id': 2.06 },
-                { 'name': 'Natural Gas Local Distribution Companies', 'id': 2.07 },
-                { 'name': 'Underground Natural Gas Storage', 'id': 2.08 },
-                { 'name': 'Liquefied Natural Gas Storage', 'id': 2.09 },
-                { 'name': 'Liquefied Natural Gas Imp/Exp Equipment', 'id': 2.10 },
-                { 'name': 'Other Petroleum & Natural Gas Systems', 'id': 2.11 }
+                { 'name': 'Offshore Petroleum & Natural Gas Production', 'id': '2a' },
+                { 'name': 'Onshore Petroleum & Natural Gas Production', 'id': '2b' },
+                { 'name': 'Onshore Petroleum & Natural Gas Gathering & Boosting', 'id': '2c' },
+                { 'name': 'Natural Gas Processing', 'id': '2d' },
+                { 'name': 'Natural Gas Transmission/Compression', 'id': '2e' },
+                { 'name': 'Onshore Natural Gas Transmission Pipelines', 'id': '2f' },
+                { 'name': 'Natural Gas Local Distribution Companies', 'id': '2g' },
+                { 'name': 'Underground Natural Gas Storage', 'id': '2h' },
+                { 'name': 'Liquefied Natural Gas Storage', 'id': '2i' },
+                { 'name': 'Liquefied Natural Gas Imp/Exp Equipment', 'id': '2k' },
+                { 'name': 'Other Petroleum & Natural Gas Systems', 'id': '2l' }
             ]
         },
         {
             'name': 'Refineries',
-            'id': 3,
+            'id': '3',
             'color': '#DBDDE8'
         },
         {
             'name': 'Chemicals',
-            'id': 4,
+            'id': '4',
             'color': '#A9ECE4',
             'child': [
-                { 'name': 'Adipic Acid Production', 'id': 4.01 },
-                { 'name': 'Ammonia Manufacturing', 'id': 4.02 },
-                { 'name': 'Fluorinated GHG Production', 'id': 4.03 },
-                { 'name': 'HCFC-22 Prod./HFC-23 Dest.', 'id': 4.04 },
-                { 'name': 'Hydrogen Production', 'id': 4.05 },
-                { 'name': 'Nitric Acid Production', 'id': 4.06 },
-                { 'name': 'Petrochemical Production', 'id': 4.07 },
-                { 'name': 'Phosphoric Acid Production', 'id': 4.08 },
-                { 'name': 'Silicon Carbide Production', 'id': 4.09 },
-                { 'name': 'Titanium Dioxide Production', 'id': 4.10 },
-                { 'name': 'Other Chemicals', 'id': 4.11 }
+                { 'name': 'Adipic Acid Production', 'id': '4a' },
+                { 'name': 'Ammonia Manufacturing', 'id': '4b' },
+                { 'name': 'Fluorinated GHG Production', 'id': '4c' },
+                { 'name': 'HCFC-22 Prod./HFC-23 Dest.', 'id': '4d' },
+                { 'name': 'Hydrogen Production', 'id': '4e' },
+                { 'name': 'Nitric Acid Production', 'id': '4f' },
+                { 'name': 'Petrochemical Production', 'id': '4g' },
+                { 'name': 'Phosphoric Acid Production', 'id': '4h' },
+                { 'name': 'Silicon Carbide Production', 'id': '4i' },
+                { 'name': 'Titanium Dioxide Production', 'id': '4k' },
+                { 'name': 'Other Chemicals', 'id': '4l' }
             ]
         },
         {
             'name': 'Other',
-            'id': 5,
+            'id': '5',
             'color': '#E7E7E7',
             'child': [
-                { 'name': 'Underground Coal Mines', 'id': 5.01 },
-                { 'name': 'Food Processing', 'id': 5.02 },
-                { 'name': 'Ethanol Production', 'id': 5.03 },
-                { 'name': 'Universities', 'id': 5.04 },
-                { 'name': 'Manufacturing', 'id': 5.05 },
-                { 'name': 'Military', 'id': 5.06 },
-                { 'name': 'Use of Electical Equipment', 'id': 5.07 },
-                { 'name': 'Electronics Manufacturing', 'id': 5.08 },
-                { 'name': 'Electrical Equipment Manufacturers', 'id': 5.09 },
-                { 'name': 'Other', 'id': 5.10 },
+                { 'name': 'Underground Coal Mines', 'id': '5a' },
+                { 'name': 'Food Processing', 'id': '5b' },
+                { 'name': 'Ethanol Production', 'id': '5c' },
+                { 'name': 'Universities', 'id': '5d' },
+                { 'name': 'Manufacturing', 'id': '5e'},
+                { 'name': 'Military', 'id': '5f' },
+                { 'name': 'Use of Electical Equipment', 'id': '5g' },
+                { 'name': 'Electronics Manufacturing', 'id': '5h' },
+                { 'name': 'Electrical Equipment Manufacturers', 'id': '5i' },
+                { 'name': 'Other', 'id': '5k' },
             ]
         },
         {
             'name': 'Minerals',
             'color': '#B3D4FB',
-            'id': 6,
+            'id': '6',
             'child': [
-                { 'name': 'Cement Production', 'id': 6.01 },
-                { 'name': 'Glass Production', 'id': 6.02 },
-                { 'name': 'Lime Manufacturing', 'id': 6.03 },
-                { 'name': 'Soda Ash Manufacturing', 'id': 6.04 },
-                { 'name': 'Other Minerals', 'id': 6.05 }
+                { 'name': 'Cement Production', 'id': '6a' },
+                { 'name': 'Glass Production', 'id': '6b' },
+                { 'name': 'Lime Manufacturing', 'id': '6c' },
+                { 'name': 'Soda Ash Manufacturing', 'id': '6d' },
+                { 'name': 'Other Minerals', 'id': '6e' }
             ]
         },
         {
             'name': 'Waste',
-            'id': 7,
+            'id': '7',
             'color': '#CEEDC7',
             'child': [
-                { 'name': 'Municipal Landfills', 'id': 7.01 },
-                { 'name': 'Industrial Landfills', 'id': 7.02 },
-                { 'name': 'Wastewater Treatment', 'id': 7.03 },
-                { 'name': 'Solid Waste Combustion', 'id': 7.04 }
+                { 'name': 'Municipal Landfills', 'id': '7a' },
+                { 'name': 'Industrial Landfills', 'id': '7b' },
+                { 'name': 'Wastewater Treatment', 'id': '7c' },
+                { 'name': 'Solid Waste Combustion', 'id': '7d' }
             ]
         },
         {
             'name': 'Metals',
-            'id': 8,
+            'id': '8',
             'color': '#DEDBD1',
             'child': [
-                { 'name': 'Aluminum Production', 'id': 8.1 },
-                { 'name': 'Ferroalloy Production', 'id': 8.2 },
-                { 'name': 'Iron & Steel Production', 'id': 8.3 },
-                { 'name': 'Lead Production', 'id': 8.4 },
-                { 'name': 'Magnesium', 'id': 8.5 },
-                { 'name': 'Zinc Production', 'id': 8.6 },
-                { 'name': 'Other Metals', 'id': 8.7 },
+                { 'name': 'Aluminum Production', 'id': '8a' },
+                { 'name': 'Ferroalloy Production', 'id': '8b' },
+                { 'name': 'Iron & Steel Production', 'id': '8c' },
+                { 'name': 'Lead Production', 'id': '8d' },
+                { 'name': 'Magnesium', 'id': '8e' },
+                { 'name': 'Zinc Production', 'id': '8f' },
+                { 'name': 'Other Metals', 'id': '8g' },
             ]
         },
         {
             'name': 'Pulp and Paper',
-            'id': 9,
+            'id': '9',
             'color': '#ACACBE',
             'child': [
-                { 'name': 'Pulp and Paper Manufacturers', 'id': 9.1 },
-                { 'name': 'Other Paper Producers', 'id': 9.2 }
+                { 'name': 'Pulp and Paper Manufacturers', 'id': '9a' },
+                { 'name': 'Other Paper Producers', 'id': '9b' }
             ]
         },
 
