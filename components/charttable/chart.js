@@ -10,7 +10,31 @@ import { piechart } from '../../data/mainfilters/piechart'
 import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
-const Chart = ({type, total}) => {
+const Chart = ({type, total, pinData}) => {
+    const _states = [
+        'Poronayskoye',
+        'Anivskoye',
+        'Dolinskoye',
+        'Korsakovskoye',
+        'Krasnogorskoye',
+        'Makarovskoye',
+        'Nevelskoye',
+        'Noglikskoye',
+        'Okhinskoye',
+        'Yuzhno-Sakhalinskoye',
+        'Aleksandrovskoye',
+        'Smirnykhovskoye',
+        'Tymovskoye',
+        'Uglegorskoye',
+        'Kholmskoye',
+        'Yuzhno-Kurilskoye',
+        'Kurilskoye'
+    ]
+
+    const allFrameItems = pinData.allPins.map((key, i) => {
+        return <FrameItem title={key.fields.facilityName} comment={_states[Number(key.fields.states)-1]} number={Math.floor(Math.sqrt(Number(key.fields.states) + Number(key.fields.states) * 3 * i / 3))}/>
+    })
+
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
           <div style={{fontSize: '11px'}}>Function is still in development</div>
@@ -48,25 +72,14 @@ const Chart = ({type, total}) => {
                         <div className="charttable__lastcol">
                             <img src="/mainfilters/2.svg" loading="lazy" alt="" className="charttable__azicon"/>
                             <div className="charttable__topcomponent">
-                                <div className="charttable__topname">2020 emissions</div>
+                                <div className="charttable__topname">2021 emissions</div>
                                 <div className="charttabel__topcomment">Metric Tons CO2e</div>
                             </div>
                         </div>
                     </div>
 
                     <div className="charttable__framestrict">
-                        <FrameItem title="OJSC “Yuzhno-Sakhalinsk Bakery named after Katsev”" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Sakhmoreproduct JSC processing fleet base" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Sakhalin Region of the Far Eastern Railway" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="LLC Electrotechnical Company Avtomatika" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Novikovskaya Diesel Electric Station JSC" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Novikovskaya Diesel Electric Station JSC" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Novikovskaya Diesel Electric Station JSC" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="LLC Electrotechnical Company Avtomatika" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Novikovskaya Diesel Electric Station JSC" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Novikovskaya Diesel Electric Station JSC" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="Novikovskaya Diesel Electric Station JSC" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
-                        <FrameItem title="LLC Electrotechnical Company Avtomatika" comment="Yuzhno-Sakhalinsk" number="19 169 743"/>
+                        { allFrameItems }
                     </div>
 
                 </div>

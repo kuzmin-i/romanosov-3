@@ -77,9 +77,9 @@ const Content = ({pinData}) => {
         const __screen = [
             {'name': 'map', 'block': (<MapBlock allFiltersStates={ {...allFiltersStates} } pinData={ pinData }/>)},
             {'name': 'list', 'block': (<ListTable pinData = { pinData }/>)},
-            {'name': 'trends', 'block': (<Chart type="trends"/>)},
-            {'name': 'barchart', 'block': (<Chart type="barchart"/>)},
-            {'name': 'piechart', 'block': (<Chart type="piechart" total={{ 'totTableSectors': (totTableSectors) ? totTableSectors : false }}/>)}
+            {'name': 'trends', 'block': (<Chart type="trends" pinData = { pinData }/>)},
+            {'name': 'barchart', 'block': (<Chart type="barchart" pinData = { pinData }/>)},
+            {'name': 'piechart', 'block': (<Chart type="piechart" pinData = { pinData } total={{ 'totTableSectors': (totTableSectors) ? totTableSectors : false }}/>)}
         ]
 
         return __screen[screen].block
