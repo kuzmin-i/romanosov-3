@@ -7,10 +7,14 @@ export default class MapTooltip extends PureComponent {
 
     return (
       <div>
-        <div>
-          {displayName}<br>
-          </br>
-          {info.fields.state}
+        <div style={{
+          padding: '10px',
+          border: '1px solid black',
+          boxShadow: '0px 4px 12px 3px rgb(0 0 0 / 15%)',
+          borderRadius: '3px'
+        }}>
+          { info.fields.facilityName }<br/>
+          ZIP: { info.fields.ZIP }
         </div>
       </div>
     );

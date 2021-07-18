@@ -234,7 +234,7 @@ const MapBlock = (__props) => {
     } = event;
     const hoveredFeature = features && features[0];
 
-    addNewMarker(event, hoveredFeature.properties.mid)
+    //addNewMarker(event, hoveredFeature.properties.mid)
 
   }, [])
 

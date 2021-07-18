@@ -25,7 +25,7 @@ export default class MapPin extends PureComponent {
     const genId = filterStatus + FTDefaultData[facilityType] + '.svg'
 
     return (
-      <img src={"/mapIcons/" + genId} style={{width: '24px', height: '25px', marginLeft: '-12px', marginTop: '-25px'}}/>
+      <img src={"/mapIcons/" + genId} onMouseEnter = { onClick } onClick={ () => window.open('/mapIcons/facilityPrint.svg', "_blank") } style={{width: '24px', height: '25px', marginLeft: '-12px', marginTop: '-25px', cursor: 'pointer'}}/>
     );
   }
 }
