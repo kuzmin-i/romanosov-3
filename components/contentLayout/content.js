@@ -20,13 +20,70 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
 const Content = ({pinData}) => {
+
+    /* Map Total Table */
+    const allPins = pinData.allPins
+
+    let totTableSectors = {
+        'powerPlants': [0, 0],
+        'petroleum': [0, 0],
+        'refineries': [0, 0],
+        'chemicals': [0, 0],
+        'other': [0, 0],
+        'minerals': [0, 0],
+        'waste': [0, 0],
+        'metals': [0, 0],
+        'pulpPaper': [0, 0]
+      }
+
+    let totTotal = {'total': [0, 0]}
+
+    allPins.map((pin, e) => {
+        Object.keys( totTableSectors ).map((kj, i) => {
+            if(pin.fields[kj] > 0) {
+                totTableSectors[kj][0] += pin.fields[kj]
+                totTotal.total[0] += pin.fields[kj]
+                totTableSectors[kj][1] += 1
+                totTotal.total[1] += 1
+            }
+        }
+        )
+    })
+
+
+    const totalone = Object.keys( totTableSectors ).map((kj, i) => {
+        return (
+            <div className="maintable__content">{totTableSectors[kj][0].toFixed(1)}</div>
+        )
+    })
+
+    const totaltwo = Object.keys( totTableSectors ).map((kj, i) => {
+        return (
+            <div className="maintable__content">{totTableSectors[kj][1].toFixed(0)}</div>
+        )
+    })
+    /* end Map Total Table */
+
     const _screen = [
         {'name': 'map', 'block': (<MapBlock pinData={ pinData }/>)},
-        {'name': 'list', 'block': (<ListTable/>)},
+        {'name': 'list', 'block': (<ListTable pinData = { pinData }/>)},
         {'name': 'trends', 'block': (<Chart type="trends"/>)},
         {'name': 'barchart', 'block': (<Chart type="barchart"/>)},
         {'name': 'piechart', 'block': (<Chart type="piechart"/>)}
     ]
+
+    const ShowScreen = ({screen, allFiltersStates}) => {
+
+        const __screen = [
+            {'name': 'map', 'block': (<MapBlock allFiltersStates={ {...allFiltersStates} } pinData={ pinData }/>)},
+            {'name': 'list', 'block': (<ListTable pinData = { pinData }/>)},
+            {'name': 'trends', 'block': (<Chart type="trends"/>)},
+            {'name': 'barchart', 'block': (<Chart type="barchart"/>)},
+            {'name': 'piechart', 'block': (<Chart type="piechart" total={{ 'totTableSectors': (totTableSectors) ? totTableSectors : false }}/>)}
+        ]
+
+        return __screen[screen].block
+    }
 
     const [scrNumber, setScrNumber] = useState(0)
 
@@ -75,9 +132,10 @@ const Content = ({pinData}) => {
     /* DATAYEAR DATA END */
     /* FACILITY TYPE START */
         const FTDefaultData = {
+            '0': true,
             '1': true, '1a': true, '1b': true, '1c': true, '1d': true, '1e': true, '1f': true, 
-            '2': false, '2a': false, '2b': false, '2c': false, '2d': false, '2e': false, '2f': false, 
-            '3': false, '3a': false, '3b': false, '3c': false,
+            '2': true, '2a': true, '2b': true, '2c': true, '2d': true, '2e': true, '2f': true, 
+            '3': true, '3a': true, '3b': true, '3c': true,
             '4': true
         }
 
@@ -88,11 +146,14 @@ const Content = ({pinData}) => {
 
             Object.keys( FTData ).map((km, i) => {
                 updFTData[km] = (id==km) ? true : false 
+                updFTData[km] = (updFTData['0'] == true) ? true : updFTData[km]
 
                 if(km.length > 1) {
                 updFTData[km] = (updFTData[km.substr(0,1)] == true) ? true : updFTData[km]
                 }
             })
+
+            console.log(updFTData)
             setFTData(updFTData)
         }
 
@@ -116,8 +177,9 @@ const Content = ({pinData}) => {
                 updStatesData[km] = (updStatesData['0'] == true) ? true : updStatesData[km]
             }
             })
+            console.log(updStatesData)
 
-            setDYData(updStatesData)
+            setStatesData(updStatesData)
         }
 
         const StatesPropsData = {'addItems': (id) => addStatesItems(id), 'data': StatesData}
@@ -168,7 +230,6 @@ const Content = ({pinData}) => {
 
         setFSData(updFSData)
 
-        console.log(updFSData)
     }
 
     const FSPropsData = {'addItems': (id) => addFSItems(id), 'data': FSData}
@@ -312,9 +373,12 @@ const Content = ({pinData}) => {
 
             </div>
 
-            <MapTable sector={ SectorPropsData }/>
+            <MapTable sector={ SectorPropsData } total = {{'one': totalone, 'two': totaltwo, 'totTotal': totTotal}}/>
             
-            { _screen[scrNumber].block }
+            { ShowScreen({
+                'screen': scrNumber, 
+                'allFiltersStates': {'filterStatus': FSData, 'DataYear': DYData, 'facilityType': FTData, 'states': StatesData, 'emissions': EMData, 'greenhouseGases': ghGasesData, 'sectors': selSectors}
+                }) }
 
             <div className="maintable__subcomment">
                 

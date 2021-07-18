@@ -1,4 +1,5 @@
 export const facilityType = [
+    {'name': 'All Categories', 'id': '0'},
     {'name': 'All Emitters', 'id': '1'},
               {'name': 'Point Sources', 'id': '1a', 'child': true},
               {'name': 'Onshore Oil & Gas Production', 'id': '1b', 'child': true},

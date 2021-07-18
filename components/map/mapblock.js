@@ -20,7 +20,9 @@ const MAPBOX_TOKEN = "pk.eyJ1IjoibWFya2thYmllcnNraSIsImEiOiJja2lpa3N2c3QwaXVrMnl
 
 
 
-const MapBlock = ({ pinData }) => {
+const MapBlock = (__props) => {
+
+  const { pinData, allFiltersStates } = __props
 
   const [viewport, setViewport] = useState({
     width: '100%',
@@ -33,7 +35,13 @@ const MapBlock = ({ pinData }) => {
   const [popupInfo, setPopupInfo] = useState(null)
 
   const _renderCityMarker = (city, index) => {
-    return (
+        
+
+    if(allFiltersStates.filterStatus[city.fields.filterStatus] && allFiltersStates.facilityType[city.fields.facilityType] && allFiltersStates.states[city.fields.states] 
+      && allFiltersStates.emissions[city.fields.emissions] && allFiltersStates.greenhouseGases[city.fields.greenhouseGases] && allFiltersStates.sectors[city.fields.sectors]) {
+      
+
+      return (
       <Marker
         key={`marker-${index}`}
         longitude={city.fields.lng}
@@ -42,6 +50,12 @@ const MapBlock = ({ pinData }) => {
         <MapPin size={20} facilityType={city.fields.facilityType} filterStatus={city.fields.filterStatus} onClick={() => setPopupInfo(city)} />
       </Marker>
     );
+    } else {
+      return (
+        <>
+        </>
+      )
+    }
   };
 
   const _renderPopup =() => {

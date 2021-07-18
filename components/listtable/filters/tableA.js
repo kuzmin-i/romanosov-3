@@ -1,6 +1,61 @@
 import ItemA from './itemA'
 
-const TableA = () => {
+import {states} from '../../../data/mainfilters/states'
+
+const categories = ['powerPlants', 'petroleum', 'refineries', 'chemicals', 'other', 'minerals', 'waste', 'metals', 'pulpPaper']
+
+let updTableA = {}
+/*  updTableA = [
+    {'id': '1', 'powerplants': 0, ...}
+]
+*/
+Object.keys(states).map((key, i) => {
+    if(key != '0') {
+        updTableA[states[key].name] = [
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+            Math.random() * 2.4,
+        ]
+
+        let _sum = 0
+        updTableA[states[key].name].map((_key, i) => {
+            _sum += _key
+        })
+
+        updTableA[states[key].name].push(_sum)        
+
+    }
+})
+
+const TableA = ({pinData}) => {
+
+    const AllItems = Object.keys(updTableA).map((km, i) => {
+        return (<><ItemA name={km} data={updTableA[km]}/></>)
+    })
+
+    console.log(updTableA)
+
+    /*let {..._updTableA} = {...updTableA}
+
+    pinData.allPins.map((key, id) => {
+        
+        categories.map((mk, i) => {
+            _updTableA[key.fields.states][i] += (key.fields[categories[i]]) ? key.fields[categories[i]] : 0
+        })
+    })
+
+    Object.keys(states).map((key, i) => {
+        const 
+        _updTableA[key].push()
+    })
+    */
+
     return(
         <div className="listtable__framebox">
             <div className="listtable__frametop">
@@ -35,46 +90,24 @@ const TableA = () => {
                             </div>
                             <div className="listtable__item">
                                 <img src="/mainfilters/2.svg" loading="lazy" alt="" className="listtable__arricon"/>
-                                <div className="listtable__tabtitle">Power plants</div>
+                                <div className="listtable__tabtitle">Metals</div>
                             </div>
                             <div className="listtable__item">
                                 <img src="/mainfilters/2.svg" loading="lazy" alt="" className="listtable__arricon"/>
-                                <div className="listtable__tabtitle">Power plants</div>
+                                <div className="listtable__tabtitle">Pulp and Paper</div>
                             </div>
                             <div className="listtable__item">
                                 <img src="/mainfilters/2.svg" loading="lazy" alt="" className="listtable__arricon"/>
-                                <div className="listtable__tabtitle">Power plants</div>
+                                <div className="listtable__tabtitle">Other</div>
                             </div>
                             <div className="listtable__item">
                                 <img src="/mainfilters/2.svg" loading="lazy" alt="" className="listtable__arricon"/>
-                                <div className="listtable__tabtitle">Power plants</div>
+                                <div className="listtable__tabtitle">Total</div>
                             </div>
                         </div>
                     </div>
+                    { AllItems }
                     
-                    <ItemA name="Poronayskoye"/>
-                    <ItemA name="Anivskoye"/>
-                    <ItemA name="Dolinskoye"/>
-                    <ItemA name="Korsakovskoye"/>
-                    <ItemA name="Krasnogorskoye"/>
-                    <ItemA name="Makarovskoye"/>
-                    <ItemA name="Nevelskoye"/>
-                    <ItemA name="Noglikskoye"/>
-                    <ItemA name="Okhinskoye"/>
-                    <ItemA name="Yuzhno-Sakhalinskoye"/>
-                    <ItemA name="Aleksandrovskoye"/>
-                    <ItemA name="Smirnykhovskoye"/>
-                    <ItemA name="Tymovskoye"/>
-                    <ItemA name="Uglegorskoye"/>
-                    <ItemA name="Kholmskoye"/>
-                    <ItemA name="Yuzhno-Kurilskoye"/>
-                    <ItemA name="Kurilskoye"/>
-                    <ItemA name="Smirnykhovskoye"/>
-                    <ItemA name="Tymovskoye"/>
-                    <ItemA name="Uglegorskoye"/>
-                    <ItemA name="Kholmskoye"/>
-                    <ItemA name="Yuzhno-Kurilskoye"/>
-                    <ItemA name="Kurilskoye"/>
         </div>
     )
 }

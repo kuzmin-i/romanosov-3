@@ -13,3 +13,8 @@
     -ms-grid-rows: auto;
     grid-template-rows: auto;
 }
+
+.listtable__cols.bb {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+}

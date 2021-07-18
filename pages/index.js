@@ -12,7 +12,6 @@ export default function Home({ posts }) {
 
   return (
     <div className="App">
-        <div className="mainfilters__applybutton" onClick={ () => PostPin()}>Post Data</div>
         <Map pinData = {{'postPin': (props) => PostPin(props), 'allPins': posts}}/>
     </div>
   );

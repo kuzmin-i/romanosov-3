@@ -4,15 +4,15 @@ class DoubleRangeSlider extends React.Component {
     state = {
       sliderWidth: 0,
       offsetSliderWidht: 0,
-      min: 0,
-      max: 200,
-      minValueBetween: 10,
+      min: -20000,
+      max: 23000000,
+      minValueBetween: 100,
       
-      currentMin: 55,
-      inputMin: 55,
+      currentMin: -20000,
+      inputMin: -20000,
       
-      currentMax: 100,
-      inputMax: 100
+      currentMax: 23000000,
+      inputMax: 23000000
     };
   
    componentDidMount() {

@@ -7,15 +7,14 @@ import { trends } from '../../data/mainfilters/trends'
 import { barchart } from '../../data/mainfilters/barchart'
 import { piechart } from '../../data/mainfilters/piechart'
 
-const Chart = ({type}) => {
+const Chart = ({type, total}) => {
 
     const _chartType = {
         'trends': (<Trends data={ trends }/>),
         'barchart': (<BarChart data = { barchart }/>),
-        'piechart': (<PieChart data = { piechart[0] }/>)
+        'piechart': (<PieChart data = { piechart[0] } total = {{'totTableSectors': (total) ? total.totTableSectors : false}}/>)
     }
 
-    console.log(piechart)
     
     return (
         <div className="charttable">
@@ -80,7 +79,7 @@ const Chart = ({type}) => {
 
             <div className="charttable__right">
                 <div class="charttable__righttop">
-                    <div class="charttable__righttitle">2010-2020 — Direct GHG emissions by Facility in million metric tons of CO2e</div>
+                    <div class="charttable__righttitle">2010-2021 — Direct GHG emissions by Facility in million metric tons of CO2e</div>
                     <div class="charttable__btnright">
                         <div class="charttable__btn">Focus on bottom sectors</div>
                         <div class="charttable__btn">Export or print chart</div>

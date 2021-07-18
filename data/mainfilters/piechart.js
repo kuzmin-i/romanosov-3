@@ -1,34 +1,57 @@
 export const piechart = [
-    [
-        {
-          "id": "c",
-          "label": "c",
-          "value": 571,
-          "color": "hsl(105, 70%, 50%)"
+      [ {
+          "id": "powerPlants",
+          "label": "Power Plants",
+          "value": 0,
+          "color": "#FFAFA4"
         },
         {
-          "id": "python",
-          "label": "python",
-          "value": 478,
-          "color": "hsl(146, 70%, 50%)"
+          "id": "petroleum",
+          "label": "Petroleum and Natural Gas Systems",
+          "value": 0,
+          "color": "#FFE7B8"
         },
         {
-          "id": "scala",
-          "label": "scala",
-          "value": 89,
-          "color": "hsl(12, 70%, 50%)"
+          "id": "refineries",
+          "label": "Refineries",
+          "value": 0,
+          "color": "#DADDE8"
         },
         {
-          "id": "haskell",
-          "label": "haskell",
-          "value": 502,
-          "color": "hsl(306, 70%, 50%)"
+          "id": "chemicals",
+          "label": "Chemicals",
+          "value": 0,
+          "color": "#A9ECE4"
         },
         {
-          "id": "rust",
-          "label": "rust",
-          "value": 583,
-          "color": "hsl(147, 70%, 50%)"
+          "id": "other",
+          "label": "Other",
+          "value": 0,
+          "color": "#B3D4FB"
+        },
+        {
+          "id": "minerals",
+          "label": "Minerals",
+          "value": 0,
+          "color": "#CEEDC7"
+        },
+        {
+          "id": "waste",
+          "label": "Waste",
+          "value": 0,
+          "color": "#DEDBD1"
+        },
+        {
+          "id": "metals",
+          "label": "Metals",
+          "value": 0,
+          "color": "#ACACBE"
+        },
+        {
+          "id": "pulpPaper",
+          "label": "Pulp and Paper",
+          "value": 0,
+          "color": "#E7E7E7"
         }
       ]
 ]

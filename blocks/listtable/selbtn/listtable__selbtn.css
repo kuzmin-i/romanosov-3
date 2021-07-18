@@ -17,3 +17,8 @@
 .listtable__selbtn.selected {
     background-color: #eee;
 }
+
+.listtable__selbtn:hover {
+    background-color: #f6f6f6;
+    cursor: pointer
+}

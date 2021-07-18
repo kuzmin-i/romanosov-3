@@ -1,9 +1,51 @@
 import ButtonTypeD from '../buttons/ButtonTypeD'
 import ButtonTypeF from '../buttons/ButtonTypeF'
 
-const MapTable = ({sector}) => {
+const MapTable = ({sector, total}) => {
     const filterSectors = (<div class="mainfilters__input--list filter">Filter sectors and industries</div>)
     const _filterSectors = ButtonTypeD
+
+    /*const allPins = pinData.allPins
+
+    let totTableSectors = {
+        'powerPlants': [0, 0],
+        'petroleum': [0, 0],
+        'refineries': [0, 0],
+        'chemicals': [0, 0],
+        'other': [0, 0],
+        'minerals': [0, 0],
+        'waste': [0, 0],
+        'metals': [0, 0],
+        'pulpPaper': [0, 0]
+      }
+
+    let totTotal = {'total': [0, 0]}
+
+    allPins.map((pin, e) => {
+        Object.keys( totTableSectors ).map((kj, i) => {
+            if(pin.fields[kj] > 0) {
+                totTableSectors[kj][0] += pin.fields[kj]
+                totTotal.total[0] += pin.fields[kj]
+                totTableSectors[kj][1] += 1
+                totTotal.total[1] += 1
+            }
+        }
+        )
+    })
+
+
+    const totalone = Object.keys( totTableSectors ).map((kj, i) => {
+        return (
+            <div className="maintable__content">{totTableSectors[kj][0].toFixed(1)}</div>
+        )
+    })
+
+    const totaltwo = Object.keys( totTableSectors ).map((kj, i) => {
+        return (
+            <div className="maintable__content">{totTableSectors[kj][1].toFixed(0)}</div>
+        )
+    })
+    */
 
     return (
         <div className="maintable">
@@ -51,20 +93,12 @@ const MapTable = ({sector}) => {
 
                 <div class="maintable__middlecontent">
                     <div class="maintable__middlecol">
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
-                        <div className="maintable__content">1568</div>
+                        { total.one }
                     </div>
                 </div>
 
                 <div className="maintable__lastcol">
-                    <div class="maintable__content">1568</div>
+                    <div class="maintable__content">{ total.totTotal.total[0].toFixed(1) }</div>
                 </div>
             </div>
 
@@ -77,20 +111,12 @@ const MapTable = ({sector}) => {
 
                 <div class="maintable__middlecontent">
                     <div class="maintable__middlecol">
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
-                        <div className="maintable__content">380</div>
+                        { total.two }
                     </div>
                 </div>
 
                 <div className="maintable__lastcol">
-                    <div class="maintable__content">1568</div>
+                    <div class="maintable__content">{ total.totTotal.total[1].toFixed(0) }</div>
                 </div>
             </div>
         </div>
