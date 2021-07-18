@@ -68,7 +68,7 @@ const BarChart = ({ data /* see data tab */ }) => (
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
         valueFormat={{ format: '', enabled: false }}
-        colors={{ scheme: 'nivo' }}
+        colors={({ id, data }) => String(data[`${id}Color`])}
         fill={[
             {
                 match: {
