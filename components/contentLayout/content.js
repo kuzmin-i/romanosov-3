@@ -362,12 +362,12 @@ const Content = ({pinData}) => {
                                 {ScrSelBlock}
                             </div>
                         </div>
-                        <div class="mainfilters__clearbutton export">Export Data</div>
+                        {/*<div class="mainfilters__clearbutton export">Export Data</div>*/}
                     </div>
 
                     <div className="mainfilters__floor rght">
-                        <div class="mainfilters__applybutton">Apply Search</div>
-                        <div class="mainfilters__clearbutton">Clear Filter</div>
+                        <div class="mainfilters__applybutton" onClick={() => window.open('/print/flight.xls', '_blank')}>Export Data</div>
+                        <div class="mainfilters__clearbutton" onClick={() => location.reload()}>Clear Filter</div>
                     </div>
                 </div>
 

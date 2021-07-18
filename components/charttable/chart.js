@@ -7,7 +7,15 @@ import { trends } from '../../data/mainfilters/trends'
 import { barchart } from '../../data/mainfilters/barchart'
 import { piechart } from '../../data/mainfilters/piechart'
 
+import Tooltip from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+
 const Chart = ({type, total}) => {
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+          <div style={{fontSize: '11px'}}>Function is still in development</div>
+        </Tooltip>
+      );
 
     const _chartType = {
         'trends': (<Trends data={ trends }/>),
@@ -81,8 +89,20 @@ const Chart = ({type, total}) => {
                 <div class="charttable__righttop">
                     <div class="charttable__righttitle">2010-2021 — Direct GHG emissions by Facility in million metric tons of CO2e</div>
                     <div class="charttable__btnright">
-                        <div class="charttable__btn">Focus on bottom sectors</div>
-                        <div class="charttable__btn">Export or print chart</div>
+                        <OverlayTrigger
+                                placement="top"
+                                delay={{ show: 250, hide: 400 }}
+                                overlay={renderTooltip}
+                        >
+                            <div class="charttable__btn">Focus on bottom sectors</div>
+                        </OverlayTrigger>
+                        <OverlayTrigger
+                                placement="top"
+                                delay={{ show: 250, hide: 400 }}
+                                overlay={renderTooltip}
+                        >
+                            <div class="charttable__btn">Export or print chart</div>
+                        </OverlayTrigger>
                     </div>
                 </div>
                 <div class="charttable__chart">

@@ -24,3 +24,8 @@
     line-height: 100%;
     text-align: center;
 }
+
+.charttable__btn:hover {
+    cursor: pointer;
+    background-color: #f6f6f6;
+}

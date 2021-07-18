@@ -33,6 +33,7 @@ const Trends = ({ data /* see data tab */ }) => (
         }}
         enableGridX={false}
         pointSize={5}
+        colors={{ datum: 'color' }}
         pointColor={{ theme: 'background' }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}

@@ -6,19 +6,19 @@ const ItemB = ({name, data}) => {
                         </div>
                         <div className="listtable__cols bb">
                             <div className="listtable__item">
-                                <div className="listtable__rownumber">{data[0].toFixed(1)}</div>
+                                <div className="listtable__rownumber"><img src={"/mapIcons/"+data[0]+"a.svg"}/></div>
                             </div>
                             <div className="listtable__item">
-                                <div className="listtable__rownumber">{data[1].toFixed(1)}</div>
+                                <div className="listtable__rownumber">{data[1]}</div>
                             </div>
                             <div className="listtable__item">
-                                <div className="listtable__rownumber">{data[2].toFixed(1)}</div>
+                                <div className="listtable__rownumber">{data[2]}</div>
                             </div>
                             <div className="listtable__item">
-                                <div className="listtable__rownumber">{data[3].toFixed(1)}</div>
+                                <div className="listtable__rownumber">{data[3]}</div>
                             </div>
                             <div className="listtable__item">
-                                <div className="listtable__rownumber">{data[4].toFixed(1)}</div>
+                                <div className="listtable__rownumber">{data[4]}</div>
                             </div>
                         </div>
                     </div>

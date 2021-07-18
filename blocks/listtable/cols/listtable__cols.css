@@ -15,6 +15,6 @@
 }
 
 .listtable__cols.bb {
-    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    -ms-grid-columns: 90px 1fr 1fr 400px 1fr;
+    grid-template-columns: 90px 1fr 1fr 400px 1fr ;
 }

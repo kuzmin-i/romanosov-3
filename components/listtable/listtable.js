@@ -2,6 +2,9 @@ import { useState } from 'react'
 import TableA from './filters/tableA'
 import TableB from './filters/tableB'
 
+import Tooltip from 'react-bootstrap/Tooltip'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+
 const ListTable = ({pinData}) => {
 
     const TableList = {
@@ -14,6 +17,12 @@ const ListTable = ({pinData}) => {
     const changeViewBy = (key) => {
         setTableNum(key)
     }
+
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+          <div style={{fontSize: '11px'}}>Section is still in development</div>
+        </Tooltip>
+      );
 
     return (
         <div className="listtable">
@@ -28,7 +37,13 @@ const ListTable = ({pinData}) => {
                     <div className="listtable__vhr"/>
                     <div className="listtable__selector">
                         <div className="listtable__selbtn selected">Selected year</div>
-                        <div className="listtable__selbtn">Changes</div>
+                        <OverlayTrigger
+                            placement="top"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={renderTooltip}
+                        >
+                            <div className="listtable__selbtn">Changes</div>
+                        </OverlayTrigger>
                     </div>
                 </div>
             </div>

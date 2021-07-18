@@ -7,7 +7,61 @@ import { ResponsiveBar } from '@nivo/bar'
 const BarChart = ({ data /* see data tab */ }) => (
     <ResponsiveBar
         data={data}
-        keys={[ 'powerplants', 'refineries', 'chemicals', 'waste', 'metals', 'pedroleum' ]}
+        keys={[ 
+            'Power Plants', 
+                'Offshore Petroleum & Natural Gas Production', 
+                'Onshore Petroleum & Natural Gas Production', 
+                'Onshore Petroleum & Natural Gas Gathering & Boosting', 
+                'Natural Gas Processing',
+                'Natural Gas Transmission/Compression',
+                'Onshore Natural Gas Transmission Pipelines',
+                'Natural Gas Local Distribution Companies',
+                'Underground Natural Gas Storage',
+                'Liquefied Natural Gas Storage',
+                'Liquefied Natural Gas Imp/Exp Equipment',
+                'Other Petroleum & Natural Gas Systems',
+            'Refineries',
+                'Adipic Acid Production',
+                'Ammonia Manufacturing',
+                'Fluorinated GHG Production',
+                'HCFC-22 Prod./HFC-23 Dest.',
+                'Hydrogen Production',
+                'Nitric Acid Production',
+                'Petrochemical Production',
+                'Phosphoric Acid Production',
+                'Silicon Carbide Production',
+                'Titanium Dioxide Production',
+                'Other Chemicals',
+            'Underground Coal Mines',
+            'Food Processing',
+            'Ethanol Production',
+            'Universities',
+            'Manufacturing',
+            'Military',
+            'Use of Electical Equipment',
+            'Electronics Manufacturing',
+            'Electrical Equipment Manufacturers',
+            'Other',
+                'Cement Production',
+                'Glass Production',
+                'Lime Manufacturing',
+                'Soda Ash Manufacturing',
+                'Other Minerals',
+            'Municipal Landfills',
+            'Industrial Landfills',
+            'Wastewater Treatment',
+            'Solid Waste Combustion',
+                'Aluminum Production',
+                'Ferroalloy Production',
+                'Iron & Steel Production',
+                'Lead Production',
+                'Magnesium',
+                'Zinc Production',
+                'Other Metals',
+            'Pulp and Paper Manufacturers',
+            ''
+
+        ]}
         indexBy="country"
         margin={{ top: 50, right: 130, bottom: 50, left: 190 }}
         padding={0.3}
